@@ -1,11 +1,13 @@
 # Socket-Programming
 ## tcp,udp(브로드캐스트)사용하여 네트워크 정보 얻기
 ## TCP
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92981b24-92c0-4db5-a85c-6c817059f012/Untitled.png)
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a00820ae-9138-447a-8832-b35303d4a7ff/Untitled.png)
+![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/c050b6d5-e721-4cef-93a4-ad2337ab8faa)
+![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/20300b29-1bb1-4663-a270-012f6968e638)
+
 ## UDP
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9136a9d-e470-4079-a766-694f781d3d38/Untitled.png)
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/188bdfa5-803f-4478-9a6d-a206689e8148/Untitled.png)
+![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/84b5e4ac-db60-4810-b888-dea3cad83854)
+![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/f1e7940d-06b0-4418-8297-f7b024e9288d)
+
 ## TCP (Transmission Control Protocol)와 UDP (User Datagram Protocol)는 인터넷 프로토콜 스위트의 두 가지 주요 전송 계층 프로토콜입니다. 이 둘은 네트워크 통신에서 데이터를 전송하는 데 사용되며, 각각의 특성과 장단점이 있습니다.
 
 1. TCP (Transmission Control Protocol):<br>
