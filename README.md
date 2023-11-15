@@ -8,7 +8,7 @@
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/84b5e4ac-db60-4810-b888-dea3cad83854)
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/f1e7940d-06b0-4418-8297-f7b024e9288d)
 
-## TCP (Transmission Control Protocol)와 UDP (User Datagram Protocol)는 인터넷 프로토콜 스위트의 두 가지 주요 전송 계층 프로토콜입니다. 이 둘은 네트워크 통신에서 데이터를 전송하는 데 사용되며, 각각의 특성과 장단점이 있습니다.
+# TCP (Transmission Control Protocol)와 UDP (User Datagram Protocol)는 인터넷 프로토콜 스위트의 두 가지 주요 전송 계층 프로토콜입니다. 이 둘은 네트워크 통신에서 데이터를 전송하는 데 사용되며, 각각의 특성과 장단점이 있습니다.
 
 1. TCP (Transmission Control Protocol):<br>
     - 연결 지향 프로토콜: 통신하기 전에 연결을 설정하고, 데이터를 전송한 후에 연결을 종료하는 방식으로 동작합니다.<br>
