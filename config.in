@@ -1,0 +1,4 @@
+menuconfig BR2_PACKAGE_SY_IPINSTALL
+	bool "rockchip sy_ipinstall"
+	help
+	  rockchip sy ipinstall
