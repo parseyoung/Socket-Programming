@@ -1,4 +1,4 @@
-# Socket-Programming
+# Socket-Programming & Cross Compilation
 ## tcp,udp(브로드캐스트)사용하여 네트워크 정보 얻기
 ## TCP
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/c050b6d5-e721-4cef-93a4-ad2337ab8faa)
@@ -8,23 +8,53 @@
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/84b5e4ac-db60-4810-b888-dea3cad83854)
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/f1e7940d-06b0-4418-8297-f7b024e9288d)
 
-#### TCP (Transmission Control Protocol)와 UDP (User Datagram Protocol)는 인터넷 프로토콜 스위트의 두 가지 주요 전송 계층 프로토콜입니다. 이 둘은 네트워크 통신에서 데이터를 전송하는 데 사용되며, 각각의 특성과 장단점이 있습니다.
+## Cross Compilation
+1. ./buildroot/package/rockchip 폴더에 신규 폴더(어플명) 생성 후  Config.in , 어플명.mk 파일 생성  <br>
+ ![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/32307e79-d626-4673-9cd2-0879f87a468d)   <br>
+- 추가 라이브러리들이 있으면 "어플명_DEPENDENCIES =" 에 추가 하시면 됩니다. <br>
+- 어플명.mk 파일에 어플명_SITE 에 실제 소스의 위치를 설정 합니다. ** app/어플명 으로 하시면 됩니다. <br>
+2. CMakeLists.txt 작성 <br>
+3. rv1126_sdk의 app에 sy_ipinstall 폴더 생성 후 소스코드와, CMakeLists.txt 파일 복사해서 넣음  <br>
+4. build 디렉토리 생성 <br>
+$ mkdir build <br>
+$ cd build <br>
+  - cmake 빌드를 소스와 같은 경로에서 해도 되지만 관리를 위해 따로 디렉토리를 생성합니다. <br>
+5. cmake 실행 <br>
+$ cmake .. <br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/68b28c26-4413-4c19-802c-1ed81d74da9a) <br>
+- cmake 명령후 에러없이 Makefile 이 생성되었다면 정상적으로 실행된것입니다. <br>
+6. Makefile로 빌드  <br>
+$ make <br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/98329c25-c34f-4cd8-aac7-cc8b15a6ac1c)  <br>
+7. sdk 루트 폴더에서 ./envsetup.sh 실행<br>
+- Which would you like? [0]: 78 선택<br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/97b72ebd-9a65-4632-bba3-8e43743f8811) <br>
+8. make 실행 <br>
+$ make sy_ipinstall  <br>
+- make가 안되면, make clean 하거나 make sy_ipinstall-rebuild
+9. 실행파일생성 확인(맨 아래) <br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/268d733d-2158-43db-96d0-14f204bead95) <br>
+10. winscp에 접속 -없으면 윈도우용 설치 <br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/479dbc03-7c8f-45ff-a426-c13b0dc68e72) <br>
+11. 실행파일 추가<br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/ed8c9f06-00ed-4e28-aeca-8da54545ef42)<br>
+12. chmod로 실행 권한 부여<br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/c6e097b7-c5f2-45fd-90cc-d4f57c1f43aa)<br>
+13. 실행 결과 <br>
+![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/b66a6123-9cdc-48a7-9eb1-a2141f6ab306) <br>
 
-1. TCP (Transmission Control Protocol):<br>
-    - 연결 지향 프로토콜: 통신하기 전에 연결을 설정하고, 데이터를 전송한 후에 연결을 종료하는 방식으로 동작합니다.<br>
-    - 신뢰성: 데이터 전송 시 데이터의 손실이나 순서의 변경을 방지하기 위해 확인 응답과 재전송 등의 메커니즘을 지원하여 신뢰성 있는 통신을 제공합니다.<br>
-    - 흐름 제어: 수신자가 데이터를 처리할 수 있는 속도에 맞춰 송신자의 데이터 전송 속도를 제어하여 데이터 오버플로우를 방지합니다.<br>
-    - 혼잡 제어: 네트워크 내 혼잡을 방지하기 위해 데이터 전송 속도를 조절합니다.<br>
-    - 가상 회선 방식: 데이터를 전송하기 전에 가상의 연결을 설정하여 데이터를 주고받습니다.<br>
-    <br>
-    TCP는 신뢰성과 데이터의 정확성을 보장하는데 적합하며, 웹 브라우징, 파일 전송, 이메일 등과 같은 어플리케이션에 주로 사용됩니다.<br>
-    <br>
-2. UDP (User Datagram Protocol):<br>
-    - 비연결성 프로토콜: 데이터를 전송하기 전에 연결을 설정하지 않고, 연결을 종료하지 않고도 데이터를 전송할 수 있습니다.<br>
-    - 비신뢰성: 데이터를 전송할 때 확인 응답과 재전송 메커니즘이 없어서 데이터의 손실이나 순서의 변경을 감지하거나 복구하지 않습니다.<br>
-    - 흐름 제어 및 혼잡 제어 없음: UDP는 데이터 전송 속도를 제어하지 않고 네트워크 혼잡도에 대해 관심이 없습니다.<br>
-    - 데이터그램 방식: 데이터를 작은 패킷으로 나누어 전송합니다. 각각의 패킷은 독립적으로 처리됩니다.<br>
-    <br>
-    UDP는 신속한 데이터 전송이 필요하거나 데이터의 손실이나 순서의 변경이 큰 문제가 되지 않는 경우에 주로 사용됩니다. 예를 들어, 온라인 게임, 동영상 스트리밍, DNS(Domain Name System) 등이 UDP를 활용한 예시입니다.<br>
-    <br>
+
+
+
+
+ 
+
+
+
+
+
+
+  
+
+   
     
