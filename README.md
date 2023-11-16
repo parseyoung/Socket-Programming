@@ -1,14 +1,14 @@
-# Socket-Programming & Cross Compilation
-## tcp,udp(브로드캐스트)사용하여 네트워크 정보 얻기
-## TCP
+## Socket-Programming & Cross Compilation
+### tcp,udp(브로드캐스트)사용하여 네트워크 정보 얻기
+### TCP
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/c050b6d5-e721-4cef-93a4-ad2337ab8faa)
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/20300b29-1bb1-4663-a270-012f6968e638)
 
-## UDP
+### UDP
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/84b5e4ac-db60-4810-b888-dea3cad83854)
 ![image](https://github.com/parseyoung/Socket-Programming/assets/104110839/f1e7940d-06b0-4418-8297-f7b024e9288d)
 
-## Cross Compilation
+### Cross Compilation
 1. ./buildroot/package/rockchip 폴더에 신규 폴더(어플명) 생성 후  Config.in , 어플명.mk 파일 생성  <br>
  ![image](https://github.com/parseyoung/Socket-Programming-Cross/assets/104110839/32307e79-d626-4673-9cd2-0879f87a468d)   <br>
 - 추가 라이브러리들이 있으면 "어플명_DEPENDENCIES =" 에 추가 하시면 됩니다. <br>
